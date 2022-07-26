@@ -5,12 +5,22 @@ pipeline{
    jdk 'jdk'
    }
    stages{
-      stage ('Compile stage') {
-	  
+      stage ('Compile stage') { 
 		steps{
 		    bat 'mvn clean compile'
 		}
 	}
-}
+	 stage('Tesing') { 
+            steps {
+                bat 'mvn test'
+		echo 'in test stage'
+            }
+        }
+	 stage('Deploy') { 
+            steps {
+                echo 'in deplyment stage'
+            }
+        }
+    }
 }
    
